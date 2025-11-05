@@ -7,17 +7,7 @@ Full-stack application for calculating and comparing carbon footprints of food p
 **Stack:** Node.js/Express + TypeORM + PostgreSQL (backend) | Next.js 15 + React (frontend)
 
 ---
-> This repository contains my submission for the Greenly Product Engineering Internship hiring test.
-> To run locally:
-> 1. Copy `.env.example` to `.env` and fill in your PostgreSQL credentials.
-> 2. Follow the setup instructions below.
 
-## Remarks
-
--The original assignment mentioned SQLite but the files used PostgreSQL so i decided it was better to stick to the current stack.  
--I added a missing db host line in dataSource.ts as well as one line to jest.json (maxworkers=1) for sequential testing since without both these changes some tests fail due to errors.
-
----
 
 ## Quickstart Guide
 
@@ -159,39 +149,3 @@ cd back && docker-compose down
   ]
 }
 ```
-## Files added to the pre-existing project 
-### Backend:
-
-back/src/product/product.entity.ts* — Product entity with ingredients and results
-
-back/src/product/product.service.ts* — Calculation logic and database operations
-
-back/src/product/product.controller.ts — REST API controller
-
-back/src/product/product.service.test.ts — Unit tests for calculation logic
-
-back/src/product/dto/create-product.dto.ts — Input validation types
-
-back/src/product/dto/product-response.dto.ts — API response types
-
-back/migrations/1708367894382-product.ts — Database migration for products table
-
-### Frontend:
-
-front/src/app/products/page.tsx — Product calculator page
-
-front/src/components/ProductForm.tsx — Form for entering product ingredients
-
-front/src/components/ProductResults.tsx — Display calculation results and breakdown
-
-front/src/components/ProductList.tsx — List of saved products for comparison
-
-front/src/app/api/products/route.ts — API route proxy
-
-front/src/types/product.ts — TypeScript type definitions
-
-*Remark* : there are other small modifications such as adding the calculator button in the home page in app/page.tsx and of course adding the .env with the local database credentials (which you can configure however you want)
----
-
-This completes the implementation of the assignment requirements:  
-calculation of carbon footprints, persistence of results, and API access through a simple full-stack interface.
